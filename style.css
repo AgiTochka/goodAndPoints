@@ -387,6 +387,9 @@ main h1 {
     align-items: center;
     gap: 12px;
 }
+.chec_pic img{
+    width: 80px;
+}
 
 .mob-good-size {
     display: none;
@@ -2009,6 +2012,7 @@ footer span {
         gap: 7px;
         flex-direction: column;
         -webkit-flex-direction: column;
+        -webkit-box-orient: vertical;
     }
 
     .input_box1,

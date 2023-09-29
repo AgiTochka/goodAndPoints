@@ -188,6 +188,11 @@ checkActive(minCount1, plusCount1, value1, maxValueCountTwo);
 checkActive(minCount2, plusCount2, value2, maxValueCountThree);
 checkActive(minCount3, plusCount3, value3, maxValueCountTwo);
 
+let label1 = document.getElementById('product_num1');
+let label2 = document.getElementById('product_num2');
+let label22 = document.getElementById('product_num22');
+let label3 = document.getElementById('product_num3');
+
 minCount1.addEventListener('click', function () {
     if (minCount1.classList.contains('active')) {
         value1 = changeValue(false, value1, count1, maxValueCountTwo);
@@ -201,6 +206,8 @@ minCount1.addEventListener('click', function () {
         oldPriceConteiner1.innerText = oldPriceConteiner1.textContent.concat(str);
         //for totalChange
         changeTotal();
+        //label
+        changeLabel(value1, label1);
     }
 });
 plusCount1.addEventListener('click', function () {
@@ -216,6 +223,8 @@ plusCount1.addEventListener('click', function () {
         oldPriceConteiner1.innerText = oldPriceConteiner1.textContent.concat(str);
         //for totalChange
         changeTotal();
+        //label
+            changeLabel(value1, label1);
     }
 });
 minCount2.addEventListener('click', function () {
@@ -224,6 +233,14 @@ minCount2.addEventListener('click', function () {
         checkActive(minCount2, plusCount2, value2, maxValueCountThree);
         //for totalChange
         changeTotal();
+        //label
+        if(value2 > 1 && value2 <= 184){
+            changeLabel(value2, label2);
+            date2.style.display = 'none';
+        } else if (value2 > 184){
+            date2.style.display = 'flex';
+            changeLabel(value2 - 184, label22);
+        }
     }
 });
 plusCount2.addEventListener('click', function () {
@@ -232,6 +249,14 @@ plusCount2.addEventListener('click', function () {
         checkActive(minCount2, plusCount2, value2, maxValueCountThree);
         //for totalChange
         changeTotal();
+        //label
+        if(value2 > 1 && value2 <= 184){
+            changeLabel(value2, label2);
+            date2.style.display = 'none';
+        } else if (value2 > 184){
+            date2.style.display = 'flex';
+            changeLabel(value2 - 184, label22);
+        }
     }
 });
 minCount3.addEventListener('click', function () {
@@ -247,6 +272,7 @@ minCount3.addEventListener('click', function () {
         oldPriceConteiner2.innerText = oldPriceConteiner2.textContent.concat(str);
         //for totalChange
         changeTotal();
+        changeLabel(value3, label3);
     }
 });
 plusCount3.addEventListener('click', function () {
@@ -262,6 +288,7 @@ plusCount3.addEventListener('click', function () {
         oldPriceConteiner2.innerText = oldPriceConteiner2.textContent.concat(str);
         //for totalChange
         changeTotal();
+        changeLabel(value3, label3);
     }
 });
 function prettify (num) {
@@ -277,6 +304,14 @@ function plusOne(oldPrice, priceOne, conteiner, conteinerMob){
 function minusOne(oldPrice, priceOne, conteiner, conteinerMob){
     conteiner.innerText = prettify(oldPrice-priceOne);
     conteinerMob.innerText = prettify(oldPrice-priceOne);
+}
+
+function changeLabel (num, label){
+    label.style.display="block";
+    label.innerText = num.toString();
+    if(num === 1){
+        label.style.display = 'none';
+    }
 }
 /*=========counter end=========*/
 
