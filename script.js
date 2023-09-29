@@ -18,6 +18,8 @@ function chAll() {
     changeDel(good3, goodDel3);
     changeVis(block1, date1);
     changeVis(block2, date2);
+    //for totalChange
+    changeTotal();
 }
 
 /*Total pay*/
