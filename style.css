@@ -38,6 +38,13 @@ body {
     font-weight: 400;
     line-height: 24px; /* 150% */
 }
+.unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
 
 header {
     width: 100%;
@@ -2001,6 +2008,7 @@ footer span {
     .form_recipient {
         gap: 7px;
         flex-direction: column;
+        -webkit-flex-direction: column;
     }
 
     .input_box1,
